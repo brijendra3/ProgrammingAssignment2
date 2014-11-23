@@ -45,22 +45,23 @@ cacheSolve <- function(x, ...) {
 
 
 ##sample Run
-## u=cbind(c(1,-1/4),c(-1/4,1))
+## > u=cbind(c(1,3),c(-2,4))
 ## > a=makeCacheMatrix()
 ## > a$set(u)
 ## > a$get()
-## [1,]  1.00 -0.25
-## [2,] -0.25  1.00
+##      [,1] [,2]
+## [1,]    1   -2
+## [2,]    3    4
 ## > a$setInv(solve(u))
 ## > a$getInv()
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
+##      [,1] [,2]
+## [1,]  0.4  0.2
+## [2,] -0.3  0.1
 ## > cacheSolve(a)
 ## getting cached data
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
+##      [,1] [,2]
+## [1,]  0.4  0.2
+## [2,] -0.3  0.1
 
 ##The above two functions can be combined in the following manner for performing the same task
 
@@ -86,21 +87,3 @@ makeCacheMatrix <- function(u = numeric()) {
 	  getInv = getInv)
 }
 
-## sample Run
-## > u=cbind(c(1, -1/4), c(-1/4, 1))
-## > a=makeCacheMatrix()
-## > a$set(u)
-## > a$get()
-##       [,1]  [,2]
-## [1,]  1.00 -0.25
-## [2,] -0.25  1.00
-## > a$setInv(solve(u))
-## > a$getInv()
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
-## > a$getInv()
-## getting cached data
-##           [,1]      [,2]
-## [1,] 1.0666667 0.2666667
-## [2,] 0.2666667 1.0666667
